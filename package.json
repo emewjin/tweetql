@@ -1,0 +1,29 @@
+{
+  "name": "tweetql",
+  "description": "learning graphQL",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "nodemon server.ts"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/graphql": "^14.5.0",
+    "@types/node": "^17.0.35",
+    "apollo-server": "^3.6.7",
+    "graphql": "^16.5.0",
+    "nodemon": "^2.0.16",
+    "ts-node": "^10.8.0",
+    "typescript": "^4.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emewjin/tweetql.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emewjin/tweetql/issues"
+  },
+  "homepage": "https://github.com/emewjin/tweetql#readme"
+}
