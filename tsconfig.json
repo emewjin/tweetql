@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "module": "commonjs", // node.js를 평범하게 사용하고 다양한import /export 가능하게 하는
-    "target": "ES2015", // 어떤 버젼의 JS 로 컴파일 되고 싶은지 적기
+    "module": "commonjs",
+    "target": "ES2017",
     "sourceMap": true,
     "moduleResolution": "Node"
   },

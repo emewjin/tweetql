@@ -1,6 +1,7 @@
 # tweetql
 
-learning graphQL
+learning graphQL  
+apollo studio를 client로 사용
 
 - [x] 컨셉
 - [x] 기본 문법
@@ -50,5 +51,8 @@ mutation {
 ```
 
 ### resolver
+
+- 모든 타입의 모든 필드에 대해 작성 가능
+- 연산 및 유사 join 가능
 
 ### error 처리
