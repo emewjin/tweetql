@@ -1,46 +1,23 @@
-import { gql, useApolloClient } from '@apollo/client';
-import { useEffect, useState } from 'react';
-
-type Movie = {
-  id: string;
-  title: string;
-};
+import { useQuery } from '@apollo/client';
+import GET_ALL_MOVIES, { MoviesData } from '../gqls/allMovies';
 
 const Movies = () => {
-  const client = useApolloClient();
+  // useQuery는 gql을 선언적으로 사용할 수 있게 한다.
+  const { data, loading, error } = useQuery<MoviesData>(GET_ALL_MOVIES);
 
-  const [movies, setMovies] = useState<Movie[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  if (loading) {
+    return <p>loading...</p>;
+  }
 
-  useEffect(() => {
-    async function getMovies() {
-      const {
-        data: { allMovies },
-        loading,
-      } = await client.query({
-        query: gql`
-          {
-            allMovies {
-              title
-              id
-            }
-          }
-        `,
-      });
-      setMovies(allMovies);
-      setIsLoading(loading);
-    }
-    getMovies();
-  }, [client]);
+  if (error) {
+    return <p>error!</p>;
+  }
 
   return (
     <div>
-      <h1 className="text-2xl">Movies</h1>
-      <p>{isLoading ? 'isLoading...' : ''}</p>
       <ul>
-        {movies.map((movie) => (
-          <li key={movie.id}>{movie.title}</li>
-        ))}
+        {data &&
+          data.allMovies.map((movie) => <li key={movie.id}>{movie.title}</li>)}
       </ul>
     </div>
   );
