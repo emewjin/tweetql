@@ -20,7 +20,17 @@ learning graphQL
 
 ## How to start
 
+- react app
+
+```ts
+// /client
+yarn dev
 ```
+
+- server
+
+```ts
+// /server
 yarn dev
 ```
 
