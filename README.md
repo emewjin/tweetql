@@ -9,6 +9,11 @@ apollo studio를 client로 사용
 - [x] 명세 문서화
 - [ ] 에러처리
 
+## Stack
+
+- apollo client : state management for fetch data from graphql api & handle local state in app
+  - 서버 데이터, 로컬 데이터 관리 및 동기화
+
 ## How to start
 
 ```
