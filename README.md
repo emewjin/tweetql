@@ -61,4 +61,14 @@ mutation {
 
 ![image](https://user-images.githubusercontent.com/76927618/170818386-8c1df94c-f2f1-4594-b742-46158e8974f7.png)
 
+### REST -> GraphQL 래핑
+
+- FE에서는 GraphQL을, BE에서는 REST를 쓰고 싶을 때
+- 기존재하는 REST api를 GraphQL로 쓰고 싶을 때
+
+아주 작은 GraphQL 서버를 쓰거나 express 서버 최상단에 apollo를 두고 REST api를 GraphQL로 변환할 수 있다.
+
+type, field를 하나하나 다 선언해주어야 하는데 매우 귀찮아보임. 대신해주는 툴이 분명히 있을듯...  
+그리고 resolver에서 fetch해서 그 응답값을 반환하도록 래핑하는 것.
+
 ### error 처리

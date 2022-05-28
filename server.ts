@@ -1,4 +1,5 @@
 import { ApolloServer, gql } from 'apollo-server';
+import fetch from 'node-fetch';
 // GraphQL 익스텐션을 설치해야 syntax highlighting가능
 
 // FAKE DB
@@ -56,12 +57,37 @@ const typeDefs = gql`
     # query parameter / path parameter는 argument로
     tweet(id: ID): Tweet
     ping: String!
+    allMovies: [Movie!]!
+    movie(id: String!): Movie
   }
   # POST, DELETE, PUT과 같이 mutate하는 모든 것들
   type Mutation {
     # text는 필수값, userId는 옵셔널
     postTweet(text: String!, userId: ID!): Tweet
     deleteTweet(id: ID): Boolean
+  }
+  type Movie {
+    id: Int!
+    url: String!
+    imdb_code: String!
+    title: String!
+    title_english: String!
+    title_long: String!
+    slug: String!
+    year: Int!
+    rating: Float!
+    runtime: Float!
+    genres: [String]!
+    summary: String
+    description_full: String!
+    synopsis: String
+    yt_trailer_code: String!
+    language: String!
+    background_image: String!
+    background_image_original: String!
+    small_cover_image: String!
+    medium_cover_image: String!
+    large_cover_image: String!
   }
 `;
 
@@ -82,6 +108,18 @@ const resolvers = {
     allUsers() {
       // users를 조회했으나 fullName이 없는 것 확인 후 fullName resolver 사용
       return users;
+    },
+    allMovies() {
+      return fetch('https://yts.mx/api/v2/list_movies.json')
+        .then((res) => res.json())
+        .then((json) => {
+          return json.data.movies;
+        });
+    },
+    movie(_, { id }) {
+      return fetch(`https://yts.mx/api/v2/movie_details.json?movie_id=${id}`)
+        .then((res) => res.json())
+        .then((json) => json.data.movie);
     },
   },
   Mutation: {
