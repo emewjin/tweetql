@@ -92,3 +92,25 @@ type, field를 하나하나 다 선언해주어야 하는데 매우 귀찮아보
 그리고 resolver에서 fetch해서 그 응답값을 반환하도록 래핑하는 것.
 
 ### error 처리
+
+### Cache
+
+아폴로 클라이언트는 type과 id로 데이터 entity를 생성한다. 만약 gql에 새로운 필드를 추가해 요청해도,새로운 데이터 또한 새로 생성되는 게 아니라 캐싱된 entity안에 추가된다.
+
+### Devtool
+
+apollo에서 크롬 익스텐션을 지원하기 때문에 다음과 같이 어떤 쿼리가 실행되었는지 추적할 수 있다.
+![image](https://user-images.githubusercontent.com/76927618/170827861-96c6582f-7c24-4101-b27b-f9438bb5b61d.png)
+
+```gql
+const GET_ALL_MOVIES = gql`
+  {
+    allMovies {
+      title
+      id
+    }
+  }
+`;
+```
+
+이렇게 쿼리에 이름을 지어주지 않으면 이미지에서처럼 Unnamed라고 나오니 지어주는 편이 디버깅하기에 좋다.
