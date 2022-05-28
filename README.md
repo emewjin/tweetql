@@ -1,7 +1,6 @@
 # tweetql
 
-learning graphQL  
-apollo studio를 client로 사용
+learning graphQL
 
 - [x] 컨셉
 - [x] 기본 문법
@@ -11,8 +10,13 @@ apollo studio를 client로 사용
 
 ## Stack
 
+- graphQL
 - apollo client : state management for fetch data from graphql api & handle local state in app
+
   - 서버 데이터, 로컬 데이터 관리 및 동기화
+
+- React 18
+- React Router Dom 6
 
 ## How to start
 
