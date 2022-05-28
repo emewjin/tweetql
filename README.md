@@ -5,7 +5,8 @@ apollo studio를 client로 사용
 
 - [x] 컨셉
 - [x] 기본 문법
-- [ ] resolver
+- [x] resolver
+- [x] 명세 문서화
 - [ ] 에러처리
 
 ## How to start
