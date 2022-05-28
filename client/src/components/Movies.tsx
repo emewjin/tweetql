@@ -1,4 +1,5 @@
 import { useQuery } from '@apollo/client';
+import { ListGroup } from 'flowbite-react';
 import { Link } from 'react-router-dom';
 import GET_ALL_MOVIES, { MoviesData } from '../gqls/allMovies';
 
@@ -16,16 +17,16 @@ const Movies = () => {
   }
 
   return (
-    <div>
-      <h1 className="text-2xl">Movies</h1>
-      <ul>
+    <div className="p-6">
+      <h1 className="text-2xl font-bold mb-4">Movies</h1>
+      <ListGroup>
         {data &&
           data.allMovies.map(({ id, title }) => (
-            <li key={id}>
+            <ListGroup.Item key={id}>
               <Link to={`/movies/${id}`}>{title}</Link>
-            </li>
+            </ListGroup.Item>
           ))}
-      </ul>
+      </ListGroup>
     </div>
   );
 };

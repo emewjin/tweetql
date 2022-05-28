@@ -1,4 +1,5 @@
 import { gql, useQuery } from '@apollo/client';
+import { Button } from 'flowbite-react';
 import { useParams } from 'react-router-dom';
 import GET_MOVIE, { MovieData, MovieVariables } from '../gqls/movie';
 
@@ -39,17 +40,17 @@ const Movie = () => {
   };
 
   return (
-    <div>
-      <h1 className="text-2xl">{data?.movie.title}</h1>
+    <div className="p-6">
+      <h1 className="text-2xl font-bold mb-4">{data?.movie.title}</h1>
       <figure>
         <img
           src={data?.movie.medium_cover_image}
           alt={`${data?.movie.title}커버 이미지`}
         />
       </figure>
-      <button onClick={handleClick}>
+      <Button onClick={handleClick} className="mt-3">
         {data?.movie?.isLiked ? 'Unlike' : 'like'}
-      </button>
+      </Button>
     </div>
   );
 };
