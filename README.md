@@ -55,4 +55,10 @@ mutation {
 - 모든 타입의 모든 필드에 대해 작성 가능
 - 연산 및 유사 join 가능
 
+### 문서화
+
+거의 대부분의 graphQL 클라이언트들이 문서를 지원하고 있음.
+
+![image](https://user-images.githubusercontent.com/76927618/170818386-8c1df94c-f2f1-4594-b742-46158e8974f7.png)
+
 ### error 처리

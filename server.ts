@@ -36,8 +36,13 @@ const typeDefs = gql`
     fullName: String!
   }
   # 테이블
-
+  """
+  Tweet에 대한 설명을 적을 수 있다.
+  """
   type Tweet {
+    """
+    필드에 대한 설명을 적을 수 있다.
+    """
     id: ID
     text: String
     # relation
